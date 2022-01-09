@@ -1,0 +1,14 @@
+couleur vert ;
+ligne (3,3) (3,6) ;
+ligne (3,6) (7,4) ;
+ligne (7,4) (7,1) ;
+ligne (7,1) (3,3) ;
+couleur rouge ;
+poser ;
+bouger (7,4) ;
+lever ;
+couleur bleu ;
+bouger (7,1) ;
+poser ;
+bouger (3,6) ;
+lever ;
