@@ -1,11 +1,11 @@
 %{
-#include <cstdio.h>
+#include <cstdio>
 extern "C" int yylex();
-void yyeror(const char *s);
+void yyerror(const char *s);
 %}
 
-%token VAR
-%token LITTERAL
+%token <variable> VAR
+%token <integer> LITTERAL
 %token OPADD OPSUB OPMULT OPDIV OPMOD
 %token AFFECT
 %token LPAR RPAR
@@ -16,56 +16,103 @@ void yyeror(const char *s);
 %token LIGNE RECTANGLE
 %token COULEUR BLANC NOIR BLEU ROUGE JAUNE ORANGE VERT VIOLET
 
+%left OPADD OPSUB
+%left OPMULT OPDIV OPMOD
+
+%type<inst> sequence instruction affectation boucle dessin
+%type<expr> expression 
+
+%union {
+ char* variable;
+ int integer;
+ Instruction* inst;
+ Expression* expr;
+}
+
 %%
-sequence: instruction sequence	{}
-|instruction {}
+sequence: instruction sequence	{
+ Sequence* s = new Sequence($1);
+ s->add($2);
+ $$ = s;
+}
+|instruction { $$ = $1;}
 ;
 
-instruction: affectation {}
-|boucle {}
-|dessin {}
+instruction: affectation {$$ = $1;}
+|boucle {$$ = $1;}
+|dessin {$$ = $1;}
 ;
 
-affectation: VAR AFFECT expression SC {}
+affectation: VAR AFFECT expression SC {
+$$ = new Affect($1,$3);
+free($1);
+}
 ;
 
-boucle: POUR VAR DE expression A expression SC sequence FINPOUR SC {}
+boucle: conditionpour sequence FINPOUR SC {
+$$ = new For($1,$2);
+}
 ;
 
-expression: numexprato ope expression {}
-|numexprato {}
+conditionpour: POUR VAR DE expression A expression SC {
+$$ = new ForCondition($2,$4,$6);
+free($2);
+}
 ;
 
-numexprato: LITTERAL {}
-|VAR {}
+expression: numexprato ope expression {
+$$ = new Ope($2,$1,$3);
+}
+|numexprato {$$ = $1;}
 ;
 
-ope: OPADD {}
-| OPSUB {}
-| OPMULT {}
-| OPDIV {}
-| OPMOD {}
+numexprato: LITTERAL {$$ = new Int($1);}
+|VAR {
+$$ = new Var($1);
+free($1);
+}
 ;
 
-dessin: POSER SC {}
-|LEVER SC {}
-|COULEUR col SC {}
-|BOUGER coordonnee SC {}
-|LIGNE coordonnee coordonnee SC {}
-|RECTANGLE coordonnee expression expression SC {}
+ope: OPADD {$$ = PLUS;}
+| OPSUB {$$ = MOINS;}
+| OPMULT {$$ = MULT;}
+| OPDIV {$$ = DIV;}
+| OPMOD {$$ = MOD;}
 ;
 
-col: NOIR {}
-|BLANC {}
-|ROUGE {}
-|ORANGE {}
-|JAUNE {}
-|VERT {}
-|BLEU {}
-|VIOLET {}
+dessin: POSER SC {
+$$ = new PutDown();
+}
+|LEVER SC {
+$$ = new Raise();
+}
+|COULEUR col SC {
+$$ = new Color($2);
+}
+|BOUGER coordonnee SC {
+$$ = new Move($2);
+}
+|LIGNE coordonnee coordonnee SC {
+$$ = new Ligne($2,$3);
+}
+|RECTANGLE coordonnee expression expression SC {
+$$ = new Rectangle($2,$3,$4);
+}
 ;
 
-coordonnee: LPAR expression COMMA expression RPAR {}
+col: NOIR {$$ = NOIR;}
+|BLANC {$$ = BLANC;}
+|ROUGE {$$ = ROUGE;}
+|ORANGE {$$ = ORANGE;}
+|JAUNE {$$ = JAUNE;}
+|VERT {$$ = VERT;}
+|BLEU {$$ = BLEU;}
+|VIOLET {$$ = VIOLET;}
+;
+
+coordonnee: LPAR expression COMMA expression RPAR {
+$$ = new Coordinates($2,$4);
+}
 ;
 
 %%
