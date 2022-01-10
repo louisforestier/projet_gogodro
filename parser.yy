@@ -65,6 +65,9 @@ col: NOIR {}
 |VIOLET {}
 ;
 
+coordonnee: LPAR expression COMMA expression RPAR {}
+;
+
 %%
 
 void yyerror(const char* str){
