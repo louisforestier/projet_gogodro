@@ -2,6 +2,7 @@
 %{
 #include <stdio.h>
 #include "parser.tab.hh"
+extern "C" int yylex();
 %}
 entier (0|[1-9][0-9]*)
 variable [a-zA-Z_][a-zA-Z_0-9]*

@@ -1,2 +1,6 @@
 .vscode/settings.json
 *.o
+gogodro
+lex.yy.c
+parser.tab.cc
+parser.tab.hh
