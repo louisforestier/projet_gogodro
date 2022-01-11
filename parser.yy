@@ -3,6 +3,22 @@
 extern "C" int yylex();
 void yyerror(const char *s);
 %}
+%code requires {
+#include "Sequence.hh"
+#include "Ope.hh"
+#include "Affect.hh"
+#include "For.hh"
+#include "ForCondition.hh"
+#include "Var.hh"
+#include "Color.hh"
+#include "Raise.hh"
+#include "Move.hh"
+#include "PutDown.hh"
+#include "Line.hh"
+#include "Rectangle.hh"
+#include "Coordinate.hh"
+#include "Int.hh"
+}
 
 %token <variable> VAR
 %token <integer> LITTERAL
@@ -19,14 +35,16 @@ void yyerror(const char *s);
 %left OPADD OPSUB
 %left OPMULT OPDIV OPMOD
 
-%type<inst> sequence instruction affectation boucle dessin
+%type<inst> sequence instruction affectation boucle dessin col conditionpour
 %type<expr> expression 
+%type<coord> coordonnee 
 
 %union {
- std::string variable;
+ char* variable;
  int integer;
  Instruction* inst;
  Expression* expr;
+ Coordinate* coord;
 }
 
 %%
@@ -60,25 +78,16 @@ free($2);
 }
 ;
 
-expression: numexprato ope expression {
-$$ = new Ope($2,$1,$3);
-}
-|numexprato {$$ = $1;}
+
+expression: LITTERAL {$$ = new Int($1);}
+| VAR {$$ = new Var($1);free($1);}
+| expression OPADD expression	{$$ = new Ope(PLUS,$1,$3);}
+| expression OPSUB expression	{$$ = new Ope(MOINS,$1,$3);}
+| expression OPMULT expression {$$ = new Ope(MULT,$1,$3);}
+| expression OPDIV expression {$$ = new Ope(DIV,$1,$3);}
+| expression OPMOD expression {$$ = new Ope(MOD,$1,$3);}
 ;
 
-numexprato: LITTERAL {$$ = new Int($1);}
-|VAR {
-$$ = new Var($1);
-free($1);
-}
-;
-
-ope: OPADD {$$ = PLUS;}
-| OPSUB {$$ = MOINS;}
-| OPMULT {$$ = MULT;}
-| OPDIV {$$ = DIV;}
-| OPMOD {$$ = MOD;}
-;
 
 dessin: POSER SC {
 $$ = new PutDown();
@@ -86,32 +95,32 @@ $$ = new PutDown();
 |LEVER SC {
 $$ = new Raise();
 }
-|COULEUR col SC {
-$$ = new Color($2);
+|col {
+$$ = $1;
 }
 |BOUGER coordonnee SC {
 $$ = new Move($2);
 }
 |LIGNE coordonnee coordonnee SC {
-$$ = new Ligne($2,$3);
+$$ = new Line($2,$3);
 }
 |RECTANGLE coordonnee expression expression SC {
 $$ = new Rectangle($2,$3,$4);
 }
 ;
 
-col: NOIR {$$ = NOIR;}
-|BLANC {$$ = BLANC;}
-|ROUGE {$$ = ROUGE;}
-|ORANGE {$$ = ORANGE;}
-|JAUNE {$$ = JAUNE;}
-|VERT {$$ = VERT;}
-|BLEU {$$ = BLEU;}
-|VIOLET {$$ = VIOLET;}
+col: COULEUR NOIR SC {$$ = new Color(E_NOIR);}
+| COULEUR BLANC SC {$$ = new Color(E_BLANC);}
+| COULEUR ROUGE SC {$$ = new Color(E_ROUGE);}
+| COULEUR ORANGE SC {$$ = new Color(E_ORANGE);}
+| COULEUR JAUNE SC {$$ = new Color(E_JAUNE);}
+| COULEUR VERT SC {$$ = new Color(E_VERT);}
+| COULEUR BLEU SC {$$ = new Color(E_BLEU);}
+| COULEUR VIOLET SC {$$ = new Color(E_VIOLET);}
 ;
 
 coordonnee: LPAR expression COMMA expression RPAR {
-$$ = new Coordinates($2,$4);
+$$ = new Coordinate($2,$4);
 }
 ;
 

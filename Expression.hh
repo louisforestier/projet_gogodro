@@ -1,9 +1,11 @@
 #ifndef _EXPR_H
 #define _EXPR_H
 
-class Expression {
+#include "Term.hh"
+
+class Expression : public Term{
 public:
-  ~Expression();
+  ~Expression(){}
 };
 
 #endif

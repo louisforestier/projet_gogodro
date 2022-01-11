@@ -1,6 +1,8 @@
 #ifndef _SEQ_H
 #define _SEQ_H
 
+#include "Instruction.hh"
+
 class SeqItem {
   Instruction* i;
   SeqItem* next;

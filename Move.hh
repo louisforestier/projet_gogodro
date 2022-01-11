@@ -1,13 +1,18 @@
-#ifndef _MOVE_H
-#define _MOVE_H
+#ifndef _MOVE_H_
+#define _MOVE_H_
+
+#include "Instruction.hh"
+#include "Coordinate.hh"
 
 class Move : public Instruction {
 
-  Coordonnee* m_c;
+  Coordinate* m_c;
 
 public:
-  Move(Coordonnee* c);
+  Move(Coordinate* c);
   ~Move();
+
+  inline Coordinate* getC() const {return m_c;}
 };
 
 #endif
