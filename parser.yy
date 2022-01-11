@@ -23,7 +23,7 @@ void yyerror(const char *s);
 %type<expr> expression 
 
 %union {
- char* variable;
+ std::string variable;
  int integer;
  Instruction* inst;
  Expression* expr;
