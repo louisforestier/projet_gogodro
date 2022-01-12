@@ -2,6 +2,8 @@
 #include <cstdio>
 extern "C" int yylex();
 void yyerror(const char *s);
+#include "Sequence.hh"
+Sequence* finalSeq = nullptr;
 %}
 %code requires {
 #include "Sequence.hh"
@@ -35,7 +37,7 @@ void yyerror(const char *s);
 %left OPADD OPSUB
 %left OPMULT OPDIV OPMOD
 
-%type<seq> sequence
+%type<seq> sequence prog
 %type<inst> instruction affectation boucle dessin col conditionpour
 %type<expr> expression 
 %type<coord> coordonnee 
@@ -49,7 +51,11 @@ void yyerror(const char *s);
  Coordinate* coord;
 }
 
+%start prog
 %%
+
+prog: sequence { finalSeq = $1;}
+
 sequence: sequence instruction	{
  Sequence* s = $1;
  s->add($2);
@@ -135,5 +141,8 @@ void yyerror(const char* str){
 int main(int argc, char ** argv) {
     int res = yyparse();
     printf("RES=%d\n",res);
+    if(finalSeq){
+        printf("win\n");
+    }
     return 0;
 }
