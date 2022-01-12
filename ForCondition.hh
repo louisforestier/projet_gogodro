@@ -17,6 +17,8 @@ public:
   inline std::string getVar() const {return m_var;}
   inline Expression* getBegin() const {return m_begin;}
   inline Expression* getEnd() const {return m_end;}
+
+  void visit(Visitor& visitor) const;
 };
 
 #endif

@@ -9,3 +9,8 @@
       delete m_left;
       delete m_right;
   }
+
+  void Ope::visit(Visitor& visitor) const
+  {
+      return visitor.visitOpe(this);
+  }

@@ -23,7 +23,7 @@ public:
 
   void visit(Visitor& visitor) const;
 private:
-	bool verify_iteration();
+	bool verify_iteration() const;
 
 };
 

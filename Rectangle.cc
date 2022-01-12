@@ -10,3 +10,8 @@ Rectangle::~Rectangle()
     delete m_length;
     delete m_width;
 }
+
+void Rectangle::visit(Visitor& visitor) const
+{
+    return visitor.visitRectangle(this);
+}

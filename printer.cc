@@ -9,7 +9,7 @@ void Printer::visitInt(const Int* i) {
 }
 
 void Printer::visitVar(const Var* v) {
-    cout << v->getIdent();
+    cout << v->getName();
 }
 
 
@@ -31,7 +31,7 @@ void Printer::visitOpe(const Ope* o) {
 void Printer::visitAffect(const Affect* a) {
     cout << a->getVar() << " = ";
     a->getExpr()->visit(*this);
-    cout << ";" << endl;
+    cout << endl;
 }
 
 void Printer::visitFor(const For* f) {
@@ -55,7 +55,7 @@ void Printer::visitColor(const Color* c) {
     cout << c->getColor() << endl;
 }
 void Printer::visitCoordinate(const Coordinate* c) {
-    cout << "( ";
+    cout << "(";
     c->getX()->visit(*this);
     cout << ",";
     c->getY()->visit(*this);
@@ -63,22 +63,32 @@ void Printer::visitCoordinate(const Coordinate* c) {
 }
 
 void Printer::visitLine(const Line* l) {
-    cout << "Begin : ";
+    cout << "Debut : ";
     l->getBegin()->visit(*this);
-    cout << "End : ";
+    cout << "Fin : ";
     l->getEnd()->visit(*this);
 }
 void Printer::visitMove(const Move* m) {
-    cout << m->getC() << ";" << endl;
+    cout << "bouger vers";
+    m->getC()->visit(*this);
+    cout << endl;
 }
 void Printer::visitPutDown(const PutDown* p) {
-    cout << "put down" << endl;
+    cout << "poser" << endl;
 }
 void Printer::visitRaise(const Raise* r) {
-    cout << "raise" << endl;
+    cout << "lever" << endl;
 }
 void Printer::visitRectangle(const Rectangle* r) {
     r->getCoord()->visit(*this);
     r->getLength()->visit(*this);
-    r->gtWidth()->visit(*this);
+    r->getWidth()->visit(*this);
+}
+
+void Printer::visitForCondition(const ForCondition* f) {
+    cout << f->getVar() << " de ";
+    f->getBegin()->visit(*this);
+    cout << " a ";
+    f->getEnd()->visit(*this);
+    cout << endl;
 }

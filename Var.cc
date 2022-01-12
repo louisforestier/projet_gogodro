@@ -7,3 +7,8 @@ Var::Var(char* name)
 }
 
 Var::~Var(){}
+
+void Var::visit(Visitor& visitor) const
+{
+    return visitor.visitVar(this);
+}

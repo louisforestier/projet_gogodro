@@ -1,20 +1,22 @@
-#ifndef VISITOR_H
-#define VISITOR_H
+#ifndef PRINTER_H
+#define PRINTER_H
 
+#include "Visitor.hh"
 
-class Int;
-class Ope;
-class Affect;
-class Color;
-class Coodinate;
-class For;
-class Line;
-class Move;
-class PutDown;
-class Raise;
-class Rectangle;
-class Sequence;
-class Var;
+#include "Int.hh"
+#include "Ope.hh"
+#include "Affect.hh"
+#include "Color.hh"
+#include "Coordinate.hh"
+#include "For.hh"
+#include "Line.hh"
+#include "Move.hh"
+#include "PutDown.hh"
+#include "Raise.hh"
+#include "Rectangle.hh"
+#include "Sequence.hh"
+#include "Var.hh"
+#include "ForCondition.hh"
 
 
 class Printer : public Visitor {
@@ -32,7 +34,7 @@ public:
 	void visitPutDown(const PutDown* p);
 	void visitRaise(const Raise* r);
 	void visitRectangle(const Rectangle* r);
-
+	void visitForCondition(const ForCondition* f);
 };
 
 

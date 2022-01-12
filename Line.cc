@@ -9,3 +9,8 @@ Line::~Line()
     delete m_begin;
     delete m_end;
 }
+
+void Line::visit(Visitor& visitor) const
+{
+    return visitor.visitLine(this);
+}

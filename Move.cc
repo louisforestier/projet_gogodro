@@ -10,3 +10,8 @@ Move::~Move()
 {
     delete m_c;
 }
+
+void Move::visit(Visitor& visitor) const
+{
+    return visitor.visitMove(this);
+}

@@ -39,7 +39,7 @@ void Sequence::add(Instruction *i) {
     first->add(i);
 }
 
-SeqItem* Sequence::getFirst()
+SeqItem* Sequence::getFirst() const
 {
     return first;
 }

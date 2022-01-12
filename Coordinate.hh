@@ -13,6 +13,8 @@ public:
 
   inline const Expression* getX() const {return m_x;}
   inline const Expression* getY() const {return m_y;}
+
+  void visit(Visitor& visitor) const;
 };
 
 #endif

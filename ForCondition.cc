@@ -10,3 +10,8 @@
       delete m_end;
 
   }
+
+  void ForCondition::visit(Visitor& visitor) const
+  {
+      return visitor.visitForCondition(this);
+  }

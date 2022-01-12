@@ -27,7 +27,7 @@ public:
   ~Sequence();
 
   void add(Instruction *i);
-  SeqItem* getFirst();
+  SeqItem* getFirst() const;
 
   void visit(Visitor& visitor) const;
 };

@@ -9,3 +9,8 @@
       delete m_x;
       delete m_y;
   }
+
+  void Coordinate::visit(Visitor& visitor) const
+  {
+      return visitor.visitCoordinate(this);
+  }

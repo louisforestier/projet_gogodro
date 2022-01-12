@@ -3,6 +3,7 @@
 extern "C" int yylex();
 void yyerror(const char *s);
 #include "Sequence.hh"
+#include "printer.hh"
 Sequence* finalSeq = nullptr;
 %}
 %code requires {
@@ -142,6 +143,8 @@ int main(int argc, char ** argv) {
     int res = yyparse();
     printf("RES=%d\n",res);
     if(finalSeq){
+		Printer printer;
+		finalSeq->visit(printer);
         printf("win\n");
     }
     return 0;

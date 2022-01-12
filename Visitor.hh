@@ -15,7 +15,7 @@ class Move;
 class PutDown;
 class Raise;
 class Rectangle;
-
+class ForCondition;
 
 
 class Visitor {
@@ -33,6 +33,7 @@ public:
   virtual void visitPutDown(const PutDown *p) = 0;
   virtual void visitRaise(const Raise *r) = 0;
   virtual void visitRectangle(const Rectangle *r) = 0;
+  virtual void visitForCondition(const ForCondition* f) = 0;
 };
 
 

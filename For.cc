@@ -12,7 +12,12 @@
       delete m_body;
   }
 
-  bool For::verify_iteration()
+  void For::visit(Visitor& visitor) const
+  {
+      return visitor.visitFor(this);
+  }
+
+  bool For::verify_iteration() const
   {
       ForCondition* forcondition = (ForCondition*)m_condition;
       Sequence* sequence = (Sequence*)m_body;

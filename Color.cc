@@ -6,3 +6,8 @@ Color::Color(colors c)
 
 }
 Color::~Color(){}
+
+void Color::visit(Visitor& visitor) const
+{
+    return visitor.visitColor(this);
+}
