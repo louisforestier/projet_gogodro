@@ -35,7 +35,8 @@ void yyerror(const char *s);
 %left OPADD OPSUB
 %left OPMULT OPDIV OPMOD
 
-%type<inst> sequence instruction affectation boucle dessin col conditionpour
+%type<seq> sequence
+%type<inst> instruction affectation boucle dessin col conditionpour
 %type<expr> expression 
 %type<coord> coordonnee 
 
@@ -43,17 +44,18 @@ void yyerror(const char *s);
  char* variable;
  int integer;
  Instruction* inst;
+ Sequence* seq;
  Expression* expr;
  Coordinate* coord;
 }
 
 %%
-sequence: instruction sequence	{
- Sequence* s = new Sequence($1);
+sequence: sequence instruction	{
+ Sequence* s = $1;
  s->add($2);
  $$ = s;
 }
-|instruction { $$ = $1;}
+|instruction { $$ = new Sequence($1);}
 ;
 
 instruction: affectation {$$ = $1;}
