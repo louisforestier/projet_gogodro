@@ -1,9 +1,8 @@
 #include "Affect.hh"
 
-  Affect::Affect(const std::string& var, Expression* e)
-  : m_name(var), m_value(e)
+  Affect::Affect(const char* var, Expression* e)
+      : m_value(e), m_name(var)
   {
-
   }
   
   Affect::~Affect()

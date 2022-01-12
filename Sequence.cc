@@ -1,8 +1,10 @@
 #include "Sequence.hh"
+#include <iostream>
 
 SeqItem::SeqItem(Instruction *i, SeqItem *next)
   : i(i),next(next)
 {
+    std::cout << "jean claude" << std::endl;
 }
 
 SeqItem::~SeqItem() {
@@ -37,3 +39,9 @@ void Sequence::add(Instruction *i) {
   else
     first->add(i);
 }
+
+SeqItem* Sequence::getFirst()
+{
+    return first;
+}
+

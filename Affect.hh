@@ -1,6 +1,7 @@
 #ifndef _AFFECT_H
 #define _AFFECT_H
 
+#include <iostream>
 #include "Instruction.hh"
 #include "Expression.hh"
 
@@ -10,7 +11,7 @@ class Affect : public Instruction {
   Expression* m_value;
 
 public:
-  Affect(const std::string& var, Expression* e);
+  Affect(const char* var, Expression* e);
   ~Affect();
 
   inline string getVar() const { return m_name; }

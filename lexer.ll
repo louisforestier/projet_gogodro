@@ -7,7 +7,7 @@ extern "C" int yylex();
 entier (0|[1-9][0-9]*)
 variable [a-zA-Z_][a-zA-Z_0-9]*
 %%
-poser      {return POSER;}
+poser      {return POSER; }
 lever      {return LEVER;}
 bouger     {return BOUGER;}
 couleur    {return COULEUR;}
@@ -35,8 +35,8 @@ finpour    {return FINPOUR;}
 "("        {return LPAR;}
 ")"        {return RPAR;}
 ","        {return COMMA;}
-{entier}   {return LITTERAL;}
-{variable} {return VAR;}
+{entier}   {yylval.integer = atoi(yytext); return LITTERAL;}
+{variable} {yylval.variable = strdup(yytext); return VAR;}
 %%
 
 

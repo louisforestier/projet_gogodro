@@ -6,6 +6,7 @@
 class SeqItem {
   Instruction* i;
   SeqItem* next;
+ 
 public:
   SeqItem(Instruction* i, SeqItem* next = NULL);
   ~SeqItem();
@@ -26,7 +27,7 @@ public:
   ~Sequence();
 
   void add(Instruction *i);
-  
+  SeqItem* getFirst();
 };
 
 #endif

@@ -7,7 +7,7 @@ class Var : public  Expression {
   std::string m_name;
 
 public:
-  Var(const std::string& name);
+  Var(char* name);
   ~Var();
 
   inline std::string getName() const {return m_name;}

@@ -1,6 +1,6 @@
 #include "Var.hh"
 
-Var::Var(const std::string& name)
+Var::Var(char* name)
 :m_name(name)
 {
 

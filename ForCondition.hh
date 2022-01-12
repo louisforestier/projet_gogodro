@@ -11,7 +11,7 @@ class ForCondition : public Instruction {
   Expression* m_end;
 
 public:
-  ForCondition(std::string var, Expression* exp1, Expression* exp2);
+  ForCondition(char* var, Expression* exp1, Expression* exp2);
   ~ForCondition();
 
   inline std::string getVar() const {return m_var;}
