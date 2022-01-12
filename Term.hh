@@ -2,6 +2,7 @@
 #define _TERM_H
 
 #include <string>
+#include "Visitor.hh"
 using namespace std;
 
 

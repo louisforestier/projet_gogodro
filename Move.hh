@@ -13,6 +13,8 @@ public:
   ~Move();
 
   inline Coordinate* getC() const {return m_c;}
+
+  void visit(Visitor& visitor) const;
 };
 
 #endif

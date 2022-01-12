@@ -22,6 +22,8 @@ public:
   ~Color();
 
   inline const colors getColor() const {return m_color;}
+
+  void visit(Visitor& visitor) const;
 };
 
 #endif

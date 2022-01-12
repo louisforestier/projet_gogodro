@@ -1,7 +1,6 @@
 #ifndef _FOR_H
 #define _FOR_H
 
-#include <typeinfo>
 #include <stdexcept>
 #include <iostream>
 #include "Instruction.hh"
@@ -22,6 +21,7 @@ public:
   inline const Instruction* getCond() const { return m_condition; }
   inline const Instruction* getBody() const { return m_body; }
 
+  void visit(Visitor& visitor) const;
 private:
 	bool verify_iteration();
 

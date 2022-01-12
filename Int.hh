@@ -11,6 +11,8 @@ public:
   ~Int();
 
   inline int getValue() const {return m_value;}
+
+  void visit(Visitor& visitor) const;
 };
 
 #endif

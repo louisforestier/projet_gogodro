@@ -28,6 +28,8 @@ public:
 
   void add(Instruction *i);
   SeqItem* getFirst();
+
+  void visit(Visitor& visitor) const;
 };
 
 #endif

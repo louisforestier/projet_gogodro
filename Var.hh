@@ -11,6 +11,8 @@ public:
   ~Var();
 
   inline std::string getName() const {return m_name;}
+
+  void visit(Visitor& visitor) const;
 };
 
 #endif
