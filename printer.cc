@@ -41,13 +41,13 @@ void Printer::visitFor(const For* f) {
 
 
 void Printer::visitSeq(const Sequence* s) {
-    cout << "ATTENTION Inversion possible (en fct de votre algo)!" << endl;
+    cout << "Debut d'une sequence." << endl;
     SeqItem* t = s->getFirst();
     while (t != NULL) {
         t->getInst()->visit(*this);
         t = t->getNext();
     }
-    cout << "ATTENTION Inversion possible (en fct de votre algo)!" << endl;
+    cout << "Fin d'une sequence." << endl;
 }
 
 
