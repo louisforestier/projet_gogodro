@@ -3,6 +3,7 @@
 
 
 class Int;
+class Float;
 class Ope;
 class Affect;
 class For;
@@ -21,6 +22,7 @@ class ForCondition;
 class Visitor {
 public:
   virtual void visitInt(const Int *i) = 0;
+  virtual void visitFloat(const Float *f) = 0;
   virtual void visitOpe(const Ope *o) = 0;
   virtual void visitAffect(const Affect *a) = 0;
   virtual void visitFor(const For *f) = 0;

@@ -21,6 +21,7 @@ Sequence* finalSeq = nullptr;
 #include "Rectangle.hh"
 #include "Coordinate.hh"
 #include "Int.hh"
+#include "Float.hh"
 }
 
 %token <variable> VAR
@@ -47,7 +48,7 @@ Sequence* finalSeq = nullptr;
 %union {
  char* variable;
  int integer;
- float flottant;
+ double flottant;
  Instruction* inst;
  Sequence* seq;
  Expression* expr;

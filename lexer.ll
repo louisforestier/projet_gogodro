@@ -37,7 +37,7 @@ finpour    {return FINPOUR;}
 ")"        {return RPAR;}
 ","        {return COMMA;}
 {entier}   {yylval.integer = atoi(yytext); return INTEGER;}
-{flottant} {yyval.flottant = atof(yytext); return FLOAT;}
+{flottant} {yylval.flottant = atof(yytext); return FLOAT;}
 {variable} {yylval.variable = strdup(yytext); return VAR;}
 %%
 

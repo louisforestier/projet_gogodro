@@ -8,6 +8,11 @@ void Printer::visitInt(const Int* i) {
     cout << i->getValue();
 }
 
+void Printer::visitFloat(const Float* f) {
+    cout <<f->getValue();
+}
+
+
 void Printer::visitVar(const Var* v) {
     cout << v->getName();
 }
