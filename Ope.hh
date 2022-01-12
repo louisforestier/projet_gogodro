@@ -24,6 +24,8 @@ public:
   inline const Expression* getLeft() const { return m_left; }
   inline const Expression* getRight() const { return m_right; }
 
+  void visit(Visitor& visitor) const;
+
 };
 
 #endif

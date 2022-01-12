@@ -13,6 +13,12 @@ public:
   Rectangle(Coordinate* coord, Expression* length, Expression* width);
   ~Rectangle();
 
+  void visit(Visitor& visitor) const;
+
+  inline Coordinate* getCoord() const { return m_coord; }
+  inline Expression* getLength() const { return m_length; }
+  inline Expression* getWidth() const { return m_width; }
+
 };
 
 #endif

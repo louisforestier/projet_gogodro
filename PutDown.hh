@@ -8,6 +8,8 @@ class PutDown : public Instruction {
 public:
   PutDown(){}
   ~PutDown(){}
+
+  void visit(Visitor& visitor) const;
 };
 
 #endif

@@ -4,7 +4,6 @@
 SeqItem::SeqItem(Instruction *i, SeqItem *next)
   : i(i),next(next)
 {
-    std::cout << "jean claude" << std::endl;
 }
 
 SeqItem::~SeqItem() {
@@ -45,3 +44,6 @@ SeqItem* Sequence::getFirst()
     return first;
 }
 
+void Sequence::visit(Visitor& visitor) const {
+    visitor.visitSeq(this);
+}

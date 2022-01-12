@@ -17,7 +17,7 @@ public:
   inline string getVar() const { return m_name; }
   inline const Expression* getExpr() const { return m_value; }
 
-
+  void visit(Visitor& visitor) const;
 };
 
 #endif

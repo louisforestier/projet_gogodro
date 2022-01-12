@@ -9,3 +9,8 @@
   {
       delete m_value;
   }
+
+  void Affect::visit(Visitor& visitor) const
+  {
+      return visitor.visitAffect(this);
+  }

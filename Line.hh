@@ -14,6 +14,8 @@ public:
 
   inline Coordinate* getBegin() const {return m_begin;}
   inline Coordinate* getEnd() const {return m_end;}
+
+  void visit(Visitor& visitor) const;
 };
 
 #endif
