@@ -22,6 +22,7 @@ Sequence* finalSeq = nullptr;
 #include "Coordinate.hh"
 #include "Int.hh"
 #include "Float.hh"
+#include "Point.hh"
 }
 
 %token <variable> VAR
@@ -34,13 +35,13 @@ Sequence* finalSeq = nullptr;
 %token COMMA
 %token POUR FINPOUR DE A
 %token POSER LEVER BOUGER
-%token LIGNE RECTANGLE
+%token LIGNE RECTANGLE POINT
 %token COULEUR BLANC NOIR BLEU ROUGE JAUNE ORANGE VERT VIOLET
 
 %left OPADD OPSUB
 %left OPMULT OPDIV OPMOD
 
-%type<seq> sequence prog
+%type<seq> sequence
 %type<inst> instruction affectation boucle dessin col conditionpour
 %type<expr> expression 
 %type<coord> coordonnee 
@@ -120,6 +121,9 @@ $$ = new Line($2,$3);
 |RECTANGLE coordonnee expression expression SC {
 $$ = new Rectangle($2,$3,$4);
 }
+| POINT coordonnee SC {
+$$ = new Point($2);
+}
 ;
 
 col: COULEUR NOIR SC {$$ = new Color(E_NOIR);}
@@ -149,7 +153,7 @@ int main(int argc, char ** argv) {
     if(finalSeq){
 		Printer printer;
 		finalSeq->visit(printer);
-        printf("win\n");
+        delete finalSeq;
     }
     return 0;
 }

@@ -22,6 +22,7 @@ orange     {return ORANGE;}
 violet     {return VERT;}
 ligne      {return LIGNE;}
 rectangle  {return RECTANGLE;}
+point      {return POINT;}
 "+"        {return OPADD;}
 "-"        {return OPSUB;}
 "*"        {return OPMULT;}
