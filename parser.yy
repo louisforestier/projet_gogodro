@@ -24,7 +24,8 @@ Sequence* finalSeq = nullptr;
 }
 
 %token <variable> VAR
-%token <integer> LITTERAL
+%token <integer> INTEGER
+%token <flottant> FLOAT
 %token OPADD OPSUB OPMULT OPDIV OPMOD
 %token AFFECT
 %token LPAR RPAR
@@ -46,6 +47,7 @@ Sequence* finalSeq = nullptr;
 %union {
  char* variable;
  int integer;
+ float flottant;
  Instruction* inst;
  Sequence* seq;
  Expression* expr;
@@ -88,7 +90,8 @@ free($2);
 ;
 
 
-expression: LITTERAL {$$ = new Int($1);}
+expression: INTEGER {$$ = new Int($1);}
+| FLOAT {$$ = new Float($1);}
 | VAR {$$ = new Var($1);free($1);}
 | expression OPADD expression	{$$ = new Ope(PLUS,$1,$3);}
 | expression OPSUB expression	{$$ = new Ope(MOINS,$1,$3);}
