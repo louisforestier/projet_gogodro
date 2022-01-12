@@ -92,3 +92,8 @@ void Printer::visitForCondition(const ForCondition* f) {
     f->getEnd()->visit(*this);
     cout << endl;
 }
+
+void Printer::visitPoint(const Point* p) {
+    cout << "point de coordonnees = ";
+    p->getCoord()->visit(*this);
+}

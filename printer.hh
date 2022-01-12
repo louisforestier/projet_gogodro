@@ -17,7 +17,7 @@
 #include "Sequence.hh"
 #include "Var.hh"
 #include "ForCondition.hh"
-
+#include "Point.hh"
 
 class Printer : public Visitor {
 public:
@@ -35,6 +35,7 @@ public:
 	void visitRaise(const Raise* r);
 	void visitRectangle(const Rectangle* r);
 	void visitForCondition(const ForCondition* f);
+	void visitPoint(const Point* p);
 };
 
 
