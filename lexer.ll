@@ -5,7 +5,6 @@
 extern "C" int yylex();
 %}
 entier (0|[1-9][0-9]*)
-flottant	[+-]?(([0-9]+([.][0-9]*)?)|([.][0-9]+))([eE][+-]?[0-9]+)?
 variable [a-zA-Z_][a-zA-Z_0-9]*
 %%
 poser      {return POSER; }
@@ -38,7 +37,6 @@ finpour    {return FINPOUR;}
 ")"        {return RPAR;}
 ","        {return COMMA;}
 {entier}   {yylval.integer = atoi(yytext); return INTEGER;}
-{flottant} {yylval.flottant = atof(yytext); return FLOAT;}
 {variable} {yylval.variable = strdup(yytext); return VAR;}
 %%
 
