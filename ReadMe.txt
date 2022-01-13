@@ -23,9 +23,10 @@ Dans parser.yy, fonction main (ligne 151). Si vous voulez le printer mettre en c
 les 2 ligne du drawer (lignes 155 et 156). Si vous voulez le drawer mettre en commentaire les 
 lignes 157 et 158.
 
-Il existe quatre fichiers de test :
+Il existe cinq fichiers de test :
 - "quadrillage.txt", dessine une grille.
 - "quadrilatere_croix.txt", dessine un quadrilatère avec une croix en son centre.
+- "rectangle_point.txt", dessine 2 rectangles concentriques de couleur différentes, ainsi qu'un point rouge.
 - "test_for_erreur.txt", fichier devant arrêter le programme car il y a une affectation sur la variable 
 	d'itération de la boucle.
 - "test_for_erreur_imbrique.txt", fichier davant arrêter le programme. Boucle imbriquée dans une autre
@@ -50,7 +51,7 @@ lever : lève le crayon, ne prend aucun argument.
 bouger (x,y) : a un argument, la coordonnée du point d'arrivée. Déplace le crayon. Ecrit si le crayon est posé.
 couleur enum_couleur : a un argument, une couleur (noir, blanc, bleu, jaune, rouge, vert, orange, violet). Change la couleur du crayon.
 ligne (x,y) (x,y) : a deux arguments, coordonnée de départ et coordonnée d'arrivée. Déplace le crayon. Ecrit toujours.
-rectangle (x,y) l h : a trois arguments, coordonnée du point du coin supérieure gauche, la largeur (un entier), la hauteur (un entier).
+rectangle (x,y) l h : a trois arguments, coordonnée du point du coin supérieure gauche, la largeur (un entier), la hauteur (un entier). Ecrit toujours. Dessine un rectangle plein.
 point (x,y) : a un argument, les coordonnées du point. Déplace le crayon.
 
 Il y a la possibilité de créer une variable et de lui affecter une valeur. 
