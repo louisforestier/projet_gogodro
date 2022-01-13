@@ -22,4 +22,4 @@ parser.tab.hh: parser.yy
 	bison -d $<
 
 clean:
-	rm -fr $(OBJ) parser.tab.* lex.yy.c gogodro *~ graph.*
+	rm -fr $(OBJ) parser.tab.* lex.yy.c gogodro *~ Images/*

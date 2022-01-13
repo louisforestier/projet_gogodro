@@ -6,7 +6,7 @@
 #include <map>
 #include <iostream>
 #include "Visitor.hh"
-#include "../CImg-3.0.0/CImg.h"
+#include "../../CImg-3.0.0/CImg.h"
 
 #include "Int.hh"
 #include "Ope.hh"

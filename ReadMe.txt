@@ -6,12 +6,19 @@ Louis Forestier & Clémentine Guillot
 Nous avons fait les cinq exercices.
 
 Arborescence
-Tous les fichiers sont à la racine du projet (.hh, .cc, lexer, parser et les exemples).
-Les images produitent par le drawer sont dans le fichier Images.
+Projet -
+		|- ReadMe.txt
+		|- gogodro -
+					|- Images  
+					|- Fichiers sources (et fichiers compilés)
+Fichiers sources correspond aux fichiers .hh, .cc, lexer.ll, parser.yy et les exemples.
+Les fichiers de compilation (l'exécutable et le les fichiers .o) sont créés dans le dossier gogodro.
+Les images produitent par le drawer sont dans le dossier Images.
 
 Comment ça marche
 -----------------
 Compiler le projet avec "make".
+On peut nettoyer les fichiers créés par la compilation avec "make clean".
 Le projet utilise la bibliothèque Clmg-3.0.0.
 Executer le projet, vous pouvez écrire vos propres fichiers ou utiliser ceux à votre disposition.
 ./gogodro < quadrilatere_croix.txt
