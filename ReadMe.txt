@@ -13,7 +13,8 @@ Projet -
 					|- Fichiers sources (et fichiers compilés)
 Fichiers sources correspond aux fichiers .hh, .cc, lexer.ll, parser.yy, makefile et les exemples.
 Les fichiers de compilation (l'exécutable et le les fichiers .o) sont créés dans le dossier gogodro.
-Les images produitent par le drawer sont dans le dossier Images.
+Les images produitent par le drawer sont dans le dossier Images. 
+Attention l'image créée est forcément nommée "image.bmp". Par conséquent, chaque exécution écrase
 
 Comment ça marche
 -----------------
@@ -21,6 +22,7 @@ Se placer dans le dossier "gogodro".
 Compiler le projet avec "make".
 On peut nettoyer les fichiers créés par la compilation avec "make clean".
 Le projet utilise la bibliothèque Clmg-3.0.0.
+Elle utilise les bibliothèques pthread et lx11 qui doivent être installées pour faire fonctionner le projet.
 Executer le projet, vous pouvez écrire vos propres fichiers ou utiliser ceux à votre disposition.
 ./gogodro < quadrilatere_croix.txt
 Le projet utilise par défaut le drawer, le résultat sera sous forme d'image.
