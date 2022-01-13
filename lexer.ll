@@ -1,4 +1,4 @@
-// Louis Forestier & Clementine Guillot
+ // Louis Forestier & Clementine Guillot
 %{
 #include <stdio.h>
 #include "parser.tab.hh"
