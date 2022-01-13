@@ -3,9 +3,11 @@ Projet gogodro
 **************
 
 Louis Forestier & Clémentine Guillot
+Nous avons fait les cinq exercices.
 
 Arborescence
 Tous les fichiers sont à la racine du projet (.hh, .cc, lexer, parser et les exemples).
+Les images produitent par le drawer sont dans le fichier Images.
 
 Comment ça marche
 -----------------
@@ -33,6 +35,8 @@ Grammaire
 ---------
 Toutes les instructions doivent se terminer par un point virgule.
 
+La couleur du fond est blanche et la couleur par défaut du crayon est noir.
+
 Le repère utilisé est sous forme (x,y), x vers la droite, y vers le bas. 
 Les coordonnées initales sont (0,0) soit le coin supérieur gauche.
 
@@ -44,7 +48,7 @@ Autres instructions du programme :
 poser : pose le crayon, ne prend aucun argument.
 lever : lève le crayon, ne prend aucun argument.
 bouger (x,y) : a un argument, la coordonnée du point d'arrivée. Déplace le crayon. Ecrit si le crayon est posé.
-couleur enum_couleur : a un argument, une couleur (noir, blanc, bleu, jaune, rouge, vert, orange, violet).
+couleur enum_couleur : a un argument, une couleur (noir, blanc, bleu, jaune, rouge, vert, orange, violet). Change la couleur du crayon.
 ligne (x,y) (x,y) : a deux arguments, coordonnée de départ et coordonnée d'arrivée. Déplace le crayon. Ecrit toujours.
 rectangle (x,y) l h : a trois arguments, coordonnée du point du coin supérieure gauche, la largeur (un entier), la hauteur (un entier).
 point (x,y) : a un argument, les coordonnées du point. Déplace le crayon.
@@ -53,16 +57,32 @@ Il y a la possibilité de créer une variable et de lui affecter une valeur.
 On ne peut pas déclarer une variable sans lui donner une valeur.
 Cela s'écrit sous la forme variable <- valeur.
 Par exemple : i <- 2 + 3;
+On peut utiliser ces variables plus loin dans le programme.
 
 Les calculs :
-On peut faire des calculs uniquement avec des entiers
+On peut faire des calculs uniquement avec des entiers et des variables.
+On peut faire des additions, des soustractions, des multiplications, des divisions et des modulos.
+Toutes ces opérations sont binaires  et s'écrivent sous la forme : x ope y.
+Les symboles pour les opérations sont : +, -, *, /, mod.
 
-	
-Améliorations :
-- Ajout de l'instruction Point qui prend en argument les coordonnées de celui-ci.
-- Ajout de Taille pour lancer le drawer
+Nous pouvons également faire des boucles.
+pour variable_iteration de borne_debut a borne_fin ;
+instructions_dans_la_boucle ;
+finpour ;
+variable_iteration est forcement une variable.
+borne_debut et borne_fin sont des variables ou des entiers ou un calcul.
+On ne peut pas faire une affectation sur variable_iteration dans la boucle.
+Il est possible de faire une boucle avec une valeur de début plus grande que la valeur de fin,
+dans ce cas là, la variable sera décrémentée de 1 en 1.
+Dans le cas inverse, elle sera incrémentée de 1 en 1.
 
-Le drawer céer une image
-=======
-- Ajout de la taille de l'image au début du programme
+
+Améliorations 
+-------------
+- Ajout de l'instruction point, pour faciliter la création d'un point.
+- Ajout de l'instruction taille, pour spécifier la taille de l'image produite par le drawer.
+
+
+
+
 
