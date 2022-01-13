@@ -1,5 +1,12 @@
 # projet_gogodro
 
+Arborescence
+
+Comment ça marche
+
+Grammaire :
+
+
 repère : coordonnée initale (0,0), x vers la droite, y vers le bas
 
 poser : pose le crayon, ne prend aucun argument.
@@ -19,11 +26,15 @@ lignes 157 et 158.
 Il existe trois fichiers de test :
 - "quadrillage.txt", dessine une grille.
 - "quadrilatere_croix.txt", dessine un quadrilatère avec une croix en son centre.
-- "test_for_erreur.txt", fichier devant arréter le programme car il y a une affectation sur la variable 
+- "test_for_erreur.txt", fichier devant arrêter le programme car il y a une affectation sur la variable 
 	d'itération de la boucle.
 	
 Améliorations :
 - Ajout de l'instruction Point qui prend en argument les coordonnées de celui-ci.
+<<<<<<< HEAD
 - Ajout de Taille pour lancer le drawer
 
 Le drawer céer une image
+=======
+- Ajout de la taille de l'image au début du programme
+>>>>>>> 350b902e3d5138ce4219d0eb3f3ab0871810bd60
