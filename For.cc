@@ -1,6 +1,7 @@
   #include "For.hh"
+  #include <iostream>
   For::For(Instruction* fcond, Instruction* body)
-  : m_condition(fcond), m_body(body)
+  : m_condition(dynamic_cast<ForCondition*>(fcond)), m_body(body)
   {
       if (verify_iteration()) 
           throw std::invalid_argument("Presence d'une affectation sur la variable d'iteration dans la boucle.");
@@ -19,7 +20,7 @@
 
   bool For::verify_iteration() const
   {
-      ForCondition* forcondition = (ForCondition*)m_condition;
+      ForCondition* forcondition = m_condition;
       Sequence* sequence = (Sequence*)m_body;
       std::string var = forcondition->getVar();
       bool result = false;

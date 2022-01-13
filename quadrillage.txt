@@ -1,6 +1,7 @@
 min <- 0 ;
-max <- 5 ;
+max <- 50 ;
+pas <- 10;
 pour i de min a max ;
-ligne (i,min) (i,max) ;
-ligne (min,i) (max,i) ;
+ligne (i*pas,min) (i*pas,max*pas) ;
+ligne (min,i*pas) (max*pas,i*pas) ;
 finpour ;

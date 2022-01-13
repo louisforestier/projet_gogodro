@@ -5,7 +5,7 @@
 #cible: dependance
 #	action pour obtenir la cible à partir des dependance
 
-SRC=printer.cc Affect.cc Color.cc Coordinate.cc For.cc ForCondition.cc Int.cc Float.cc Line.cc Move.cc Ope.cc PutDown.cc Raise.cc Rectangle.cc Sequence.cc Var.cc Point.cc parser.tab.cc 
+SRC=printer.cc Affect.cc Color.cc Coordinate.cc For.cc ForCondition.cc Int.cc Float.cc Line.cc Move.cc Ope.cc PutDown.cc Raise.cc Rectangle.cc Sequence.cc Var.cc Point.cc Drawer.cc parser.tab.cc 
 SRCH=Affect.hh Color.hh Coordinate.hh For.hh ForCondtion.hh Instruction.hh Int.hh Line.hh Move.hh Ope.hh PutDown.hh Raise.hh Rectangle.hh Sequence.hh Term.hh Var.hh
 OBJ=lex.yy.o $(SRC:.cc=.o) 
 
@@ -13,7 +13,7 @@ OBJ=lex.yy.o $(SRC:.cc=.o)
 #	g++ -o $@ $^ -lfl
 
 gogodro: $(OBJ)
-	g++ -o $@ $(OBJ) -lfl
+	g++ -o $@ $(OBJ) -lfl -L/usr/X11R6/lib -lm -lpthread -lX11
 
 lex.yy.o: lex.yy.c
 	g++ -c $<

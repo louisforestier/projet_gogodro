@@ -19,7 +19,7 @@ jaune      {return JAUNE;}
 rouge      {return ROUGE;}
 vert       {return VERT;}
 orange     {return ORANGE;}
-violet     {return VERT;}
+violet     {return VIOLET;}
 ligne      {return LIGNE;}
 rectangle  {return RECTANGLE;}
 point      {return POINT;}

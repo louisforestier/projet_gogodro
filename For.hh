@@ -11,14 +11,14 @@
 
 class For : public Instruction {
 
-  Instruction* m_condition;
+  ForCondition* m_condition;
   Instruction* m_body;
 
 public:
   For(Instruction* fcond, Instruction* body);
   ~For();
 
-  inline const Instruction* getCond() const { return m_condition; }
+  inline const ForCondition* getCond() const { return m_condition; }
   inline const Instruction* getBody() const { return m_body; }
 
   void visit(Visitor& visitor) const;
