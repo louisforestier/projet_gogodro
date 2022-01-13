@@ -7,6 +7,7 @@ Nous avons fait les cinq exercices.
 
 Arborescence
 Tous les fichiers sont à la racine du projet (.hh, .cc, lexer, parser et les exemples).
+Les images produitent par le drawer sont dans le fichier Images.
 
 Comment ça marche
 -----------------
