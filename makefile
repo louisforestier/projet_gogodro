@@ -12,7 +12,7 @@ OBJ=lex.yy.o $(SRC:.cc=.o)
 #	g++ -o $@ $^ -lfl
 
 gogodro: $(OBJ)
-	g++ -o $@ $(OBJ) -lfl -L/usr/X11R6/lib -lm -lpthread -lX11
+	g++ -o $@ $(OBJ) -lfl -lpthread -lX11
 
 lex.yy.o: lex.yy.c
 	g++ -c $<
