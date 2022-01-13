@@ -32,6 +32,33 @@
               std::string v_affect = affect->getVar();
               result = (v_affect.compare(var) == 0);
           }
+          const For* for_imbric = dynamic_cast<const For*>(inst);
+          if (for_imbric != nullptr) {
+              std::vector<std::string> variables;
+              variables.push_back(var);
+              result = for_imbric->verify_iteration(variables);
+          }
+          seqtmp = seqtmp->getNext();
+      }
+      return result;
+  }
+
+  bool For::verify_iteration(std::vector<std::string> variables) const {
+      ForCondition* forcondition = m_condition;
+      Sequence* sequence = (Sequence*)m_body;
+      std::string var = forcondition->getVar();
+      variables.push_back(var);
+      bool result = false;
+      SeqItem* seqtmp = sequence->getFirst();
+      while (seqtmp != nullptr) {
+          const Instruction* inst = seqtmp->getInst();
+          const Affect* affect = dynamic_cast<const Affect*>(inst);
+          if (affect != nullptr) {
+              std::string v_affect = affect->getVar();
+              for (std::string v : variables ){
+                result = result && (v_affect.compare(v) == 0);
+              } 
+          }
           seqtmp = seqtmp->getNext();
       }
       return result;

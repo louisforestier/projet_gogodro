@@ -3,6 +3,7 @@
 
 #include <stdexcept>
 #include <iostream>
+#include <vector>
 #include "Instruction.hh"
 #include "ForCondition.hh"
 #include "Sequence.hh"
@@ -24,6 +25,7 @@ public:
   void visit(Visitor& visitor) const;
 private:
 	bool verify_iteration() const;
+  bool verify_iteration(std::vector<std::string> variables) const;
 
 };
 
