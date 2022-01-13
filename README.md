@@ -15,3 +15,13 @@ Pour passer du printer au drawer et inversement :
 Dans parser.yy, fonction main (ligne 151). Si vous voulez le printer mettre en commentaire
 les 2 ligne du drawer (lignes 155 et 156). Si vous voulez le drawer mettre en commentaire les 
 lignes 157 et 158.
+
+Il existe trois fichiers de test :
+- "quadrillage.txt", dessine une grille.
+- "quadrilatere_croix.txt", dessine un quadrilatère avec une croix en son centre.
+- "test_for_erreur.txt", fichier devant arréter le programme car il y a une affectation sur la variable 
+	d'itération de la boucle.
+	
+Améliorations :
+- Ajout de l'instruction Point qui prend en argument les coordonnées de celui-ci.
+- 
