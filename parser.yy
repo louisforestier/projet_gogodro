@@ -23,6 +23,7 @@ Sequence* finalSeq = nullptr;
 #include "Coordinate.hh"
 #include "Int.hh"
 #include "Point.hh"
+#include "Taille.hh"
 }
 
 %token <variable> VAR
@@ -33,6 +34,7 @@ Sequence* finalSeq = nullptr;
 %token SC
 %token COMMA
 %token POUR FINPOUR DE A
+%token TAILLE
 %token POSER LEVER BOUGER
 %token LIGNE RECTANGLE POINT
 %token COULEUR BLANC NOIR BLEU ROUGE JAUNE ORANGE VERT VIOLET
@@ -41,7 +43,7 @@ Sequence* finalSeq = nullptr;
 %left OPMULT OPDIV OPMOD
 
 %type<seq> sequence
-%type<inst> instruction affectation boucle dessin col conditionpour
+%type<inst> instruction affectation boucle dessin col conditionpour taille
 %type<expr> expression 
 %type<coord> coordonnee 
 
@@ -58,6 +60,12 @@ Sequence* finalSeq = nullptr;
 %%
 
 prog: sequence { finalSeq = $1;}
+;
+
+taille: TAILLE INTEGER INTEGER SC {
+$$ = new Taille($2,$3);
+}
+;
 
 sequence: sequence instruction	{
  Sequence* s = $1;
