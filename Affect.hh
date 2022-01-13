@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef _AFFECT_H
 #define _AFFECT_H
 

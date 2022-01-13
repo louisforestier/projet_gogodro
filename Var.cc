@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #include "Var.hh"
 
 Var::Var(char* name)

@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #include "Sequence.hh"
 #include <iostream>
 

@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #include "Rectangle.hh"
 
 Rectangle::Rectangle(Coordinate* coord, Expression* length, Expression* width)
