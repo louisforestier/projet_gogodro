@@ -11,12 +11,13 @@ Projet -
 		|- gogodro -
 					|- Images  
 					|- Fichiers sources (et fichiers compilés)
-Fichiers sources correspond aux fichiers .hh, .cc, lexer.ll, parser.yy et les exemples.
+Fichiers sources correspond aux fichiers .hh, .cc, lexer.ll, parser.yy, makefile et les exemples.
 Les fichiers de compilation (l'exécutable et le les fichiers .o) sont créés dans le dossier gogodro.
 Les images produitent par le drawer sont dans le dossier Images.
 
 Comment ça marche
 -----------------
+Se placer dans le dossier "gogodro".
 Compiler le projet avec "make".
 On peut nettoyer les fichiers créés par la compilation avec "make clean".
 Le projet utilise la bibliothèque Clmg-3.0.0.
