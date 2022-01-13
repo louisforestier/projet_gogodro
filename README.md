@@ -11,4 +11,7 @@ rectangle : a trois arguments, coordonnée du point du coin supérieure gauche,l
 
 notation coordonnée : (x,y)
 
-
+Pour passer du printer au drawer et inversement :
+Dans parser.yy, fonction main (ligne 151). Si vous voulez le printer mettre en commentaire
+les 2 ligne du drawer (lignes 155 et 156). Si vous voulez le drawer mettre en commentaire les 
+lignes 157 et 158.

@@ -4,7 +4,6 @@
 #include "Visitor.hh"
 
 #include "Int.hh"
-#include "Float.hh"
 #include "Ope.hh"
 #include "Affect.hh"
 #include "Color.hh"
@@ -23,7 +22,6 @@
 class Printer : public Visitor {
 public:
 	void visitInt(const Int* i);
-	void visitFloat(const Float* f);
 	void visitOpe(const Ope* o);
 	void visitAffect(const Affect* a);
 	void visitFor(const For* f);

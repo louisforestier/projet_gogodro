@@ -7,7 +7,6 @@
 #include "../CImg-3.0.0/CImg.h"
 
 #include "Int.hh"
-#include "Float.hh"
 #include "Ope.hh"
 #include "Affect.hh"
 #include "Color.hh"
@@ -51,7 +50,6 @@ public:
 	~Drawer();
 
 	void visitInt(const Int* i);
-	void visitFloat(const Float* f);
 	void visitOpe(const Ope* o);
 	void visitAffect(const Affect* a);
 	void visitFor(const For* f);
