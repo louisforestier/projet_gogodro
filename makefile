@@ -8,9 +8,6 @@
 SRC=printer.cc Affect.cc Color.cc Coordinate.cc For.cc ForCondition.cc Int.cc Line.cc Move.cc Ope.cc PutDown.cc Raise.cc Rectangle.cc Sequence.cc Var.cc Point.cc Drawer.cc parser.tab.cc 
 OBJ=lex.yy.o $(SRC:.cc=.o) 
 
-#gogodro: lex.yy.o parser.tab.o
-#	g++ -o $@ $^ -lfl
-
 gogodro: $(OBJ)
 	g++ -o $@ $(OBJ) -lfl -lpthread -lX11
 
@@ -27,17 +24,6 @@ parser.tab.cc: parser.tab.hh
 
 parser.tab.hh: parser.yy
 	bison -d $<
-
-#parser.tab.cc: parser.yy
-#	bison -d $<
-
-#graph.png: graph.dot
-#	dot -Tpng $< > $@
-
-#graph.dot: parser.yy
-#	bison --graph=graph.dot parser.yy
-
-#all: gogodro graph.png
 
 clean:
 	rm -fr $(OBJ) parser.tab.* lex.yy.c gogodro *~ graph.*
