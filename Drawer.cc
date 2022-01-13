@@ -18,7 +18,7 @@ Drawer::Drawer(int sizeX, int sizeY)
 
 Drawer::~Drawer()
 {
-    m_img.save_bmp("toto.bmp");
+    m_img.save_bmp("image.bmp");
     std::cout<<"Fin du traitement."<<std::endl;
 }
 
