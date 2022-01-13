@@ -22,7 +22,6 @@ Sequence* finalSeq = nullptr;
 #include "Rectangle.hh"
 #include "Coordinate.hh"
 #include "Int.hh"
-#include "Float.hh"
 #include "Point.hh"
 }
 

@@ -27,10 +27,6 @@ void Drawer::visitInt(const Int *i)
     m_stack.emplace(i->getValue());
 }
 
-void Drawer::visitFloat(const Float *f)
-{
-    //m_stack.emplace(f);
-}
 
 void Drawer::visitVar(const Var *v)
 {
