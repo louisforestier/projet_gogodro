@@ -1,3 +1,4 @@
+taille 1000 1000 ;
 couleur vert ;
 ligne (300,300) (300,600) ;
 ligne (300,600) (700,400) ;

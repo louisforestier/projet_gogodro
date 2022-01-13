@@ -6,6 +6,7 @@ void yyerror(const char *s);
 #include "printer.hh"
 #include "Drawer.hh"
 Sequence* finalSeq = nullptr;
+int sizeX, sizeY;
 %}
 %code requires {
 #include "Sequence.hh"
@@ -23,7 +24,6 @@ Sequence* finalSeq = nullptr;
 #include "Coordinate.hh"
 #include "Int.hh"
 #include "Point.hh"
-#include "Taille.hh"
 }
 
 %token <variable> VAR
@@ -43,7 +43,7 @@ Sequence* finalSeq = nullptr;
 %left OPMULT OPDIV OPMOD
 
 %type<seq> sequence
-%type<inst> instruction affectation boucle dessin col conditionpour taille
+%type<inst> instruction affectation boucle dessin col conditionpour
 %type<expr> expression 
 %type<coord> coordonnee 
 
@@ -59,11 +59,13 @@ Sequence* finalSeq = nullptr;
 %start prog
 %%
 
-prog: sequence { finalSeq = $1;}
+
+prog: taille sequence { finalSeq = $2;}
 ;
 
 taille: TAILLE INTEGER INTEGER SC {
-$$ = new Taille($2,$3);
+sizeX = $2;
+sizeY = $3;
 }
 ;
 
@@ -156,7 +158,7 @@ int main(int argc, char ** argv) {
     int res = yyparse();
     printf("RES=%d\n",res);
     if(finalSeq){
-		Drawer drawer(1000,1000);
+		Drawer drawer(sizeX,sizeY);
 		finalSeq->visit(drawer);
 		// Printer printer;
 		// finalSeq->visit(printer);
