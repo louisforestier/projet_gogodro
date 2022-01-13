@@ -47,7 +47,6 @@
       ForCondition* forcondition = m_condition;
       Sequence* sequence = (Sequence*)m_body;
       std::string var = forcondition->getVar();
-      variables.push_back(var);
       bool result = false;
       SeqItem* seqtmp = sequence->getFirst();
       while (seqtmp != nullptr) {
@@ -56,8 +55,15 @@
           if (affect != nullptr) {
               std::string v_affect = affect->getVar();
               for (std::string v : variables ){
-                result = result && (v_affect.compare(v) == 0);
+                   result = result || (v_affect.compare(v) == 0);
               } 
+          }
+          else {
+              const For* for_imbric = dynamic_cast<const For*>(inst);
+              if (for_imbric != nullptr) {
+                  variables.push_back(var);
+                  result = for_imbric->verify_iteration(variables);
+              }
           }
           seqtmp = seqtmp->getNext();
       }
