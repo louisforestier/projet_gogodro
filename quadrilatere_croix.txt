@@ -1,10 +1,7 @@
 couleur vert ;
 ligne (300,300) (300,600) ;
-couleur violet ;
 ligne (300,600) (700,400) ;
-couleur jaune ;
 ligne (700,400) (700,100) ;
-couleur noir;
 ligne (700,100) (300,300) ;
 couleur rouge ;
 poser ;

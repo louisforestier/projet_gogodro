@@ -18,7 +18,8 @@ Drawer::Drawer(int sizeX, int sizeY)
 
 Drawer::~Drawer()
 {
-    //m_img.save_bmp("toto.bmp");
+    m_img.save_bmp("toto.bmp");
+    std::cout<<"Fin du traitement."<<std::endl;
 }
 
 void Drawer::visitInt(const Int *i)
@@ -33,7 +34,6 @@ void Drawer::visitFloat(const Float *f)
 
 void Drawer::visitVar(const Var *v)
 {
-    cout << v->getName();
     if (m_variables.count(v->getName()) > 0)
     {
         m_stack.emplace(m_variables[(v->getName())]);
@@ -44,7 +44,6 @@ void Drawer::visitVar(const Var *v)
 
 void Drawer::visitOpe(const Ope *o)
 {
-    cout << "(";
     o->getLeft()->visit(*this);
     o->getRight()->visit(*this);
     int left = m_stack.top();
@@ -86,11 +85,9 @@ void Drawer::visitFor(const For *f)
     std::string var = f->getCond()->getVar();
     int max = m_stack.top();
     m_stack.pop();
-    std::cout << "visitFor avant boucle" << std::endl;
-    for (m_variables[var]; m_variables[var] < max; m_variables[var]++)
+    for (m_variables[var]; m_variables[var] <= max; m_variables[var]++)
     {
         f->getBody()->visit(*this);
-        std::cout << "tour de boucle i = " <<m_variables[var] << std::endl;
     }
 }
 
@@ -104,7 +101,6 @@ void Drawer::visitSeq(const Sequence *s)
         t = t->getNext();
         ligne++;
     }
-    m_img.save_bmp("toto.bmp");
 }
 
 void Drawer::visitColor(const Color *c)
@@ -156,10 +152,9 @@ void Drawer::visitLine(const Line *l)
     m_stack.pop();
     int x1 = m_stack.top();
     m_stack.pop();
-    m_img.draw_line(x1,x2,y1,y2,m_color);
+    m_img.draw_line(x1,y1,x2,y2,m_color);
     m_currX = x2;
     m_currY = y2;
-
 }
 void Drawer::visitMove(const Move *m)
 {
