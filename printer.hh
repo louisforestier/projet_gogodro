@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef PRINTER_H
 #define PRINTER_H
 

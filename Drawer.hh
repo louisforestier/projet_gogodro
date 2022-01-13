@@ -1,8 +1,10 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef DRAWER_H
 #define DRAWER_H
 
 #include <stack>
 #include <map>
+#include <iostream>
 #include "Visitor.hh"
 #include "../CImg-3.0.0/CImg.h"
 

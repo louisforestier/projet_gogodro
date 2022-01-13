@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #include "Line.hh"
 
 Line::Line(Coordinate* c1, Coordinate* c2)

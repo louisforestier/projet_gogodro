@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #include "Affect.hh"
 
   Affect::Affect(const char* var, Expression* e)

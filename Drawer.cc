@@ -1,5 +1,5 @@
+//Clémentine Guillot & Louis Forestier
 #include "Drawer.hh"
-#include <iostream>
 const unsigned char Drawer::BLACK[3] = {0, 0, 0};
 const unsigned char Drawer::WHITE[3] = {255, 255, 255};
 const unsigned char Drawer::RED[3] = {255, 0, 0};
@@ -19,14 +19,13 @@ Drawer::Drawer(int sizeX, int sizeY)
 Drawer::~Drawer()
 {
     m_img.save_bmp("Images/image.bmp");
-    std::cout<<"Fin du traitement."<<std::endl;
+    std::cout << "Fin du traitement." << std::endl;
 }
 
 void Drawer::visitInt(const Int *i)
 {
     m_stack.emplace(i->getValue());
 }
-
 
 void Drawer::visitVar(const Var *v)
 {
@@ -79,11 +78,21 @@ void Drawer::visitFor(const For *f)
 {
     f->getCond()->visit(*this);
     std::string var = f->getCond()->getVar();
-    int max = m_stack.top();
+    int end = m_stack.top();
     m_stack.pop();
-    for (m_variables[var]; m_variables[var] <= max; m_variables[var]++)
+    if (m_variables[var] <= end)
     {
-        f->getBody()->visit(*this);
+        for (m_variables[var]; m_variables[var] <= end; m_variables[var]++)
+        {
+            f->getBody()->visit(*this);
+        }
+    }
+    else
+    {
+        for (m_variables[var]; m_variables[var] >= end; m_variables[var]--)
+        {
+            f->getBody()->visit(*this);
+        }
     }
 }
 
@@ -148,7 +157,7 @@ void Drawer::visitLine(const Line *l)
     m_stack.pop();
     int x1 = m_stack.top();
     m_stack.pop();
-    m_img.draw_line(x1,y1,x2,y2,m_color);
+    m_img.draw_line(x1, y1, x2, y2, m_color);
     m_currX = x2;
     m_currY = y2;
 }
@@ -161,7 +170,7 @@ void Drawer::visitMove(const Move *m)
     m_stack.pop();
     if (m_isDrawing)
     {
-        m_img.draw_line(m_currX, m_currY, x,y,m_color);
+        m_img.draw_line(m_currX, m_currY, x, y, m_color);
     }
     m_currX = x;
     m_currY = y;
@@ -188,7 +197,7 @@ void Drawer::visitRectangle(const Rectangle *r)
     m_stack.pop();
     int x = m_stack.top();
     m_stack.pop();
-    m_img.draw_rectangle(x,y,width,length,m_color);
+    m_img.draw_rectangle(x, y, width, length, m_color);
     m_currX = x;
     m_currY = y;
 }
@@ -211,5 +220,4 @@ void Drawer::visitPoint(const Point *p)
     m_img.draw_point(x, y, m_color);
     m_currX = x;
     m_currY = y;
-
 }

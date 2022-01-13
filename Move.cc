@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #include "Move.hh"
 
 Move::Move(Coordinate* c)

@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef _SEQ_H
 #define _SEQ_H
 

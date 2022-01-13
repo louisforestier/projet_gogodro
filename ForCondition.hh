@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef _FORCONDITION_H
 #define _FORCONDITION_H
 

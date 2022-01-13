@@ -1,9 +1,5 @@
-# $@ : cible a gauche des :
-# $^ : represente l'ensemble des dependance
-# $< : represente la premiere des dependance
+# Clémentine Guillot & Louis Forestier
 
-#cible: dependance
-#	action pour obtenir la cible à partir des dependance
 
 SRC=printer.cc Affect.cc Color.cc Coordinate.cc For.cc ForCondition.cc Int.cc Line.cc Move.cc Ope.cc PutDown.cc Raise.cc Rectangle.cc Sequence.cc Var.cc Point.cc Drawer.cc parser.tab.cc 
 OBJ=lex.yy.o $(SRC:.cc=.o) 

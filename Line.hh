@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef _LIGNE_H
 #define _LIGNE_H
 

@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef POINT_H
 #define POINT_H
 

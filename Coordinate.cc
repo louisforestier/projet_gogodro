@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #include "Coordinate.hh" 
  
   Coordinate::Coordinate(Expression* exp1, Expression* exp2)

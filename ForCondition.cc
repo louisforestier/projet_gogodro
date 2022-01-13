@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #include "ForCondition.hh"
 
   ForCondition::ForCondition(char* var, Expression* exp1, Expression* exp2)

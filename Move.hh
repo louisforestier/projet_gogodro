@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef _MOVE_H_
 #define _MOVE_H_
 

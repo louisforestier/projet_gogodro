@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef _COORD_H
 #define _COORD_H
 

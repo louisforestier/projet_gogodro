@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #include "Color.hh"
 
 Color::Color(colors c)

@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef _INT_H
 #define _INT_H
 

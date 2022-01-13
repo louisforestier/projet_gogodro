@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #include "Ope.hh"
 
   Ope::Ope(OperatorSymbol symbol, Expression* exp1, Expression* exp2)

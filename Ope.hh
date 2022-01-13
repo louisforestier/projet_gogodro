@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef _OPE_H
 #define _OPE_H
 

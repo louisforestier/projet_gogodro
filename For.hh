@@ -1,8 +1,8 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef _FOR_H
 #define _FOR_H
 
 #include <stdexcept>
-#include <iostream>
 #include <vector>
 #include "Instruction.hh"
 #include "ForCondition.hh"

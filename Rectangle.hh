@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef _RECTANGLE_H
 #define _RECTANGLE_H
 

@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #ifndef _RAISE_H
 #define _RAISE_H
 

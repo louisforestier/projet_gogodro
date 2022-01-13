@@ -1,3 +1,4 @@
+//Clémentine Guillot & Louis Forestier
 #include "Point.hh"
 
 Point::Point(Coordinate* c)

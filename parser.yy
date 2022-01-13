@@ -1,3 +1,4 @@
+// Louis Forestier & Clementine Guillot
 %{
 #include <cstdio>
 extern "C" int yylex();
